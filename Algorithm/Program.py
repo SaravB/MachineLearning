@@ -46,5 +46,3 @@ forest = random_forest_algorithm(train_df, n_trees=1, n_bootstrap=len(train_df),
                                  dt_min_leaf_size=100)
 predictions = random_forest_predictions(test_df, forest)
 accuracy = calculate_accuracy(predictions, test_df.label)
-
-#leuke tekst

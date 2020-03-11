@@ -19,8 +19,11 @@ def get_potential_splits(data, random_subspace):
     _, n_columns = data.shape
     column_indices = list(range(n_columns - 1))
 
-    if random_subspace and random_subspace <= len(column_indices):
+    if random_subspace and isinstance(random_subspace, int) and random_subspace <= len(column_indices):
+        random.seed(None)
         column_indices = random.sample(population=column_indices, k=random_subspace)
+    elif random_subspace and not isinstance(random_subspace, int):
+        column_indices = random_subspace
 
     for column_index in column_indices:
         values = data[:, column_index]
@@ -104,8 +107,8 @@ def decision_tree_algorithm(df, counter=0, min_samples=2, max_depth=5, random_su
 
         sub_tree = {question: []}
 
-        yes_answer = decision_tree_algorithm(data_below, counter, max_depth=max_depth, random_subspace=random_subspace)
-        no_answer = decision_tree_algorithm(data_above, counter, max_depth=max_depth, random_subspace=random_subspace)
+        yes_answer = decision_tree_algorithm(data_below, counter, max_depth=max_depth, random_subspace=potential_splits.keys())
+        no_answer = decision_tree_algorithm(data_above, counter, max_depth=max_depth, random_subspace=potential_splits.keys())
         if yes_answer == no_answer:
             sub_tree = yes_answer
         else:
@@ -151,17 +154,10 @@ def classify_example(example, tree):
         residual_tree = answer
         return classify_example(example, residual_tree)
 
+
 def decision_tree_predictions(test_df, tree):
     predictions = test_df.apply(classify_example, args=(tree,), axis=1)
     return predictions
-
-def calculate_accuracy(df, tree):
-    df["classification"] = df.apply(classify_example, axis=1, args=(tree,))
-    df["classification_correct"] = df.classification == df.label
-
-    accuracy = df.classification_correct.mean()
-
-    return accuracy
 
 
 

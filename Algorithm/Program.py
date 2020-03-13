@@ -1,35 +1,12 @@
-import random
 import pandas as pd
 from datetime import datetime
-#from mnist import MNIST
-
 
 from HelperFunctions import get_train_test_data, accuracy
 from RandomForest import random_forest_algorithm, random_forest_predictions
 
-
-column_names = []
-forest = []
-
-#data = MNIST('samples')
-#images, labels = data.load_training()
-
-#train_df = pd.DataFrame(images)
-#train_df["label"] = labels
-#print(train_df[1])
-
-#for column in train_df.columns:
-#    if column != "label":
-#        name = "pixel" + str(column)
-#    else:
-#        name = column
-
-#    column_names.append(name)
-#train_df.columns = column_names
-
 df = pd.read_csv("mnist_train.csv", header=None)
 
-
+column_names = []
 for column in df.columns:
     if column != 0:
         name = "pixel" + str(column)
@@ -46,30 +23,37 @@ df = df[cols]
 train_df, test_df = get_train_test_data(df, test_size=0.1)
 
 
-#print(datetime.now())
-#forest = random_forest_algorithm(train_df, n_trees=25, n_bootstrap=len(train_df)/2, n_features=40, dt_max_depth=25)
-#predictions = random_forest_predictions(test_df, forest)
-#print(datetime.now())
-#accuracy = accuracy(predictions, test_df.label)
-#print(accuracy)
-#print(datetime.now())
+results = pd.read_csv("results.csv",header=0, names=["bootstrap_size", "no_features", "max_depth", "no_trees", "accuracy", "seconds"])
+originalresults = results
 
-numberoftrees = range(10, 50, 10)
-numberoffeatures = range(20, 100, 20)
-maxdepth = range(5, 55, 10)
+numberoftrees = range(10, 60, 10)
+numberoffeatures = range(20, 120, 20)
+maxdepth = range(5, 65, 10)
 bootstrapsize = (round(0.1*len(train_df)), round(0.25*len(train_df)), round(0.5*len(train_df)), len(train_df))
-results = []
 
-for n_bootstrap in bootstrapsize:
-    for n_features in numberoffeatures:
-        for dt_max_depth in maxdepth:
-            for n_trees in numberoftrees:
-                for i in range(10):
+for i in range(10):
+    for n_bootstrap in bootstrapsize:
+        for n_features in numberoffeatures:
+            for dt_max_depth in maxdepth:
+                for n_trees in numberoftrees:
+                    seriesObj = originalresults.apply(lambda x: True if x["bootstrap_size"] == n_bootstrap and
+                                                                        x["no_features"] == n_features and
+                                                                        x["max_depth"] == dt_max_depth and
+                                                                        x["no_trees"] == n_trees else False, axis=1)
+                    if len(seriesObj[seriesObj == True].index) > i:
+                        continue
+
+                    forest = []
                     start = datetime.now()
                     forest = random_forest_algorithm(train_df, n_trees=n_trees, n_bootstrap=n_bootstrap, n_features=n_features,
                                                      dt_max_depth=dt_max_depth)
                     predictions = random_forest_predictions(test_df, forest)
                     prediction_accuracy = accuracy(predictions, test_df.label)
                     td = datetime.now()-start
-                    results.append([n_bootstrap, n_features, dt_max_depth, n_trees, prediction_accuracy, td.total_seconds()])
-                    pd.DataFrame(results).to_csv("results.csv")
+                    results = results.append({"bootstrap_size": n_bootstrap,
+                                    "no_features": n_features,
+                                    "max_depth": dt_max_depth,
+                                    "no_trees": n_trees,
+                                    "accuracy": prediction_accuracy,
+                                    "seconds": td.total_seconds()}, ignore_index=True)
+                    results.to_csv("results.csv")

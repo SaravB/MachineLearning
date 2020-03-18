@@ -4,6 +4,7 @@
     <list default="true" id="9f9ef278-85f2-49d8-9059-75b3dbea751c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.py" beforeDir="false" afterPath="$PROJECT_DIR$/Program.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RandomForest.py" beforeDir="false" afterPath="$PROJECT_DIR$/RandomForest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,46 +117,46 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="548" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1583922963852" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1584113778723">
+    <state width="1515" height="247" key="GridCell.Tab.0.bottom" timestamp="1584517955737">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584113778723" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1584113778723">
+    <state width="1515" height="247" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584517955737" />
+    <state width="1515" height="247" key="GridCell.Tab.0.center" timestamp="1584517955737">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584113778723" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1584113778723">
+    <state width="1515" height="247" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584517955737" />
+    <state width="1515" height="247" key="GridCell.Tab.0.left" timestamp="1584517955737">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584113778723" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1584113778723">
+    <state width="1515" height="247" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584517955737" />
+    <state width="1515" height="247" key="GridCell.Tab.0.right" timestamp="1584517955737">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584113778723" />
-    <state width="1515" height="247" key="GridCell.Tab.1.bottom" timestamp="1584113764469">
+    <state width="1515" height="247" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584517955737" />
+    <state width="1515" height="247" key="GridCell.Tab.1.bottom" timestamp="1584517959987">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584113764469" />
-    <state width="1515" height="247" key="GridCell.Tab.1.center" timestamp="1584113764469">
+    <state width="1515" height="247" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584517959987" />
+    <state width="1515" height="247" key="GridCell.Tab.1.center" timestamp="1584517959986">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1584113764469" />
-    <state width="1515" height="247" key="GridCell.Tab.1.left" timestamp="1584113764469">
+    <state width="1515" height="247" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1584517959986" />
+    <state width="1515" height="247" key="GridCell.Tab.1.left" timestamp="1584517959986">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1584113764469" />
-    <state width="1515" height="247" key="GridCell.Tab.1.right" timestamp="1584113764469">
+    <state width="1515" height="247" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1584517959986" />
+    <state width="1515" height="247" key="GridCell.Tab.1.right" timestamp="1584517959986">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1584113764469" />
+    <state width="1515" height="247" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1584517959986" />
     <state x="277" y="56" key="SettingsEditor" timestamp="1583923421733">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1583923421733" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1584111846567">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1584519996781">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584111846567" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584519996781" />
     <state x="341" y="149" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1584090229914">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -166,7 +167,7 @@
       <breakpoints>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RandomForest.py</url>
-          <line>33</line>
+          <line>34</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>
@@ -178,10 +179,5 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="results.append({&quot;bootstrap_size&quot;: n_bootstrap,                                      &quot;no_features&quot;: n_features,                                      &quot;max_depth&quot; : dt_max_depth,                                      &quot;no_trees&quot;: n_trees,                                      &quot;accuracy&quot;: prediction_accuracy,                                      &quot;seconds&quot;: td.total_seconds()}, ignore_index=True)" language="Python" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

@@ -14,9 +14,10 @@ def get_random_features(data, n_features):
     return data[np.append(columns, data.columns[-1])]
 
 
-def random_forest_algorithm(train_df, n_trees, n_bootstrap, n_features, dt_max_depth):
-    forest = []
-    for index in range(n_trees):
+def random_forest_algorithm(train_df, n_trees, n_bootstrap, n_features, dt_max_depth, forest):
+    start = len(forest)
+    for index in range(start, n_trees):
+        np.random.seed(index)
         df_bootstrapped = bootstrapping(train_df, n_bootstrap)
         df_random_subspace = get_random_features(df_bootstrapped, n_features)
         tree = decision_tree_algorithm(df_random_subspace, max_depth=dt_max_depth)

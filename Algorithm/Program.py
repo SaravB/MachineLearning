@@ -54,7 +54,6 @@ results = pd.read_csv("results3.csv", header=0,
                       names=["bootstrap_size", "no_features", "max_depth", "no_trees", "accuracy", "seconds"])
 originalresults = results
 
-
 # part below is adjusted per person and I will send you
 numberoftrees = range(50, 250, 50)
 numberoffeatures = range(50, 250, 50)
@@ -71,11 +70,8 @@ for n_bootstrap in bootstrapsize:
                                                              x["no_features"] == n_features and
                                                              x["max_depth"] == dt_max_depth and
                                                              x["no_trees"] == n_trees else 0, axis=1)
-            if any(existing_data):
+            if len(existing_data) > 0 and sum(existing_data) > 1:
                 continue
-
-            if n_trees <= len(forest):
-                forest = []
 
             start = datetime.now()
 

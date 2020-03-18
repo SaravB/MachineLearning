@@ -1,17 +1,6 @@
 import numpy as np
 import pandas as pd
-from datetime import datetime
 from DecisionTree import decision_tree_algorithm, decision_tree_predictions
-
-
-def bootstrapping(train_df, n_bootstrap):
-    bootstrap_indices = np.random.randint(low=0, high=len(train_df), size=n_bootstrap)
-    return train_df.iloc[bootstrap_indices]
-
-
-def get_random_features(data, n_features):
-    columns = np.random.choice(data.columns[:-1], n_features, replace=False)
-    return data[np.append(columns, data.columns[-1])]
 
 
 def random_forest_algorithm(train_df, n_trees, n_bootstrap, n_features, dt_max_depth, forest):
@@ -24,6 +13,16 @@ def random_forest_algorithm(train_df, n_trees, n_bootstrap, n_features, dt_max_d
         forest.append(tree)
 
     return forest
+
+
+def bootstrapping(train_df, n_bootstrap):
+    bootstrap_indices = np.random.randint(low=0, high=len(train_df), size=n_bootstrap)
+    return train_df.iloc[bootstrap_indices]
+
+
+def get_random_features(data, n_features):
+    columns = np.random.choice(data.columns[:-1], n_features, replace=False)
+    return data[np.append(columns, data.columns[-1])]
 
 
 def random_forest_predictions(test_df, forest):

@@ -50,18 +50,19 @@ def accuracy(predicted_labels, actual_labels):
 # this is so you can restart after something failed and the code knows what you have already calculated
 # DONOT upload this to Github with this name, as this will only result in conflicts as everyone will alter the file.
 # rename before
-results = pd.read_csv("results3.csv", header=0,
+originalresults = pd.read_csv("results4.csv", header=0,
                       names=["bootstrap_size", "no_features", "max_depth", "no_trees", "accuracy", "seconds"])
-originalresults = results
+#originalresults = pd.DataFrame(columns=["bootstrap_size", "no_features", "max_depth", "no_trees", "accuracy", "seconds"])
+results = originalresults
 
 # part below is adjusted per person and I will send you
-numberoftrees = range(50, 250, 50)
-numberoffeatures = range(50, 250, 50)
-dt_max_depth = 25
-bootstrapsize = (round(0.1 * len(train_df)), round(0.25 * len(train_df)), round(0.5 * len(train_df)), len(train_df))
+numberoftrees = (10, 20, 30, 40, 50, 100)
+numberoffeatures = (10, 20, 30, 40, 50, 100)
+maxdepth = (20, 25)
+n_bootstrap = (round(0.5 * len(train_df)))
 # part above is adjusted per person and I will send you
 
-for n_bootstrap in bootstrapsize:
+for dt_max_depth in maxdepth:
     for n_features in numberoffeatures:
         forest = []
         for n_trees in numberoftrees:
@@ -87,4 +88,4 @@ for n_bootstrap in bootstrapsize:
                                       "no_trees": n_trees,
                                       "accuracy": prediction_accuracy,
                                       "seconds": td.total_seconds()}, ignore_index=True)
-            results.to_csv("results3.csv")
+            results.to_csv("results4.csv")
